@@ -1,0 +1,28 @@
+colorscheme apprentice
+
+imap <C-h> <Left>
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-l> <Right>
+imap <C-o> <Esc>o
+imap <C-f> <End>
+imap <C-a> <Home>
+nmap <C-f> <End>
+nmap <C-a> <Home>
+vmap <c-f> <End>
+
+set guifont=Menlo:h13.5
+
+"zp zy 文件中复制保存
+if has("unix")
+nmap zp :r $HOME/.vimxfer<CR>
+nmap zy :'a,.w! $HOME/.vimxfer<CR>
+vmap zp c<esc>:r $HOME/.vimxfer<CR>
+vmap zy :w! $HOME/.vimxfer<CR>
+else
+nmap zp :r c:/.vimxfer<CR>
+nmap zy :'a,.w! c:/.vimxfer<CR>
+vmap zp c<esc>:r c:/.vimxfer<cr>
+vmap zy :w! c:/.vimxfer<CR>
+end
+"

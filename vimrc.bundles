@@ -1,0 +1,151 @@
+" Environment {
+	" Basics {
+		set nocompatible        " Must be first line
+		set background=dark     " Assume a dark background
+	" }
+	" Setup Bundle Support {
+	" The next three lines ensure that the ~/.vim/bundle/ system works
+		filetype off
+		set rtp+=~/.vim/bundle/Vundle.vim
+		call vundle#begin()
+	" }
+" }
+"
+
+
+function! UnBundle(arg, ...)
+    let bundle = vundle#config#init_bundle(a:arg, a:000)
+    call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
+    endfunction
+
+    com! -nargs=+         UnBundle
+    \ call UnBundle(<args>)
+
+
+
+
+"Bundles {
+" Deps {
+Bundle 'gmarik/vundle'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+if executable('ag')
+	Bundle 'mileszs/ack.vim'
+	let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+elseif executable('ack-grep')
+	let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+	Bundle 'mileszs/ack.vim'
+elseif executable('ack')
+	Bundle 'mileszs/ack.vim'
+endif
+" }
+
+
+
+
+
+" General {
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+
+
+Bundle 'flazz/vim-colorschemes'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'spf13/vim-colors'
+
+
+Bundle 'jiangmiao/auto-pairs'
+
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+
+Bundle 'kristijanhusak/vim-multiple-cursors'
+
+Bundle 'vim-scripts/sessionman.vim'
+
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+
+Bundle 'Lokaltog/vim-easymotion'
+
+
+Bundle 'vim-scripts/restore_view.vim'
+
+"indent
+Bundle 'vim-scripts/indentLine.vim'
+
+"format
+Bundle 'Chiel92/vim-autoformat'
+
+Bundle 'mhinz/vim-signify'
+Bundle 'tpope/vim-abolish.git'
+Bundle 'osyo-manga/vim-over'
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-indent'
+
+Bundle 'gcmt/wildfire.vim'
+
+"}
+" Writing {
+Bundle 'reedes/vim-litecorrect'
+Bundle 'reedes/vim-textobj-sentence'
+Bundle 'reedes/vim-textobj-quote'
+Bundle 'reedes/vim-wordy'
+Bundle 'mbbill/undotree'
+" }
+
+"Snippets & AutoComplete {
+    Bundle 'garbas/vim-snipmate'
+    Bundle 'honza/vim-snippets'
+    " Source support_function.vim to support vim-snippets.
+    if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+        source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+    endif
+    Bundle 'Valloric/YouCompleteMe'
+    Bundle 'SirVer/ultisnips'
+"}
+
+
+" General Programming {
+" Pick one of the checksyntax, jslint, or syntastic
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
+Bundle 'godlygeek/tabular'
+if executable('ctags')
+	Bundle 'majutsushi/tagbar'
+    Bundle 'szw/vim-tags'
+endif
+Bundle 'amiorin/vim-project'
+" }
+
+
+" Python {
+Bundle 'klen/python-mode'
+Bundle 'yssource/python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
+
+"}
+
+" Javascript {
+Bundle 'elzr/vim-json'
+Bundle 'groenewege/vim-less'
+Bundle 'pangloss/vim-javascript'
+Bundle 'briancollins/vim-jst'
+Bundle 'kchmck/vim-coffee-script'
+" }
+
+" Go Lang {
+Bundle 'fatih/vim-go'
+" }
+
+"}
+
+call vundle#end()
+filetype plugin indent on
