@@ -676,9 +676,9 @@ let g:acp_enableAtStartup = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " remap Ultisnips for compatibility for YCM
-let g:UltiSnipsExpandTrigger = '<C-l>'
-let g:UltiSnipsJumpForwardTrigger = '<C-l>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-h>'
+let g:UltiSnipsExpandTrigger = '<C-b>'
+let g:UltiSnipsJumpForwardTrigger = '<C-n>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-p>'
 let g:ycm_global_ycm_extra_conf = '~/.vim'
 let g:ycm_confirm_extra_conf = 0
 "let g:ycm_add_preview_to_completeopt = 1
@@ -743,9 +743,6 @@ let g:wildfire_objects = {
             \ "html,xml" : ["at"],
             \ }
 " }
-
-
-
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
