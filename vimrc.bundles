@@ -70,7 +70,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'Lokaltog/vim-easymotion'
 
 
-Bundle 'vim-scripts/restore_view.vim'
+"Bundle 'vim-scripts/restore_view.vim'
 
 "indent
 Bundle 'vim-scripts/indentLine.vim'
@@ -103,7 +103,7 @@ Bundle 'mbbill/undotree'
     if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
         source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
     endif
-    Bundle 'Valloric/YouCompleteMe'
+    "Bundle 'Valloric/YouCompleteMe'
     Bundle 'SirVer/ultisnips'
 "}
 
